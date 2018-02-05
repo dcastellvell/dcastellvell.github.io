@@ -1,0 +1,67 @@
+<html lang="es">
+            <head>
+              <title>Cementiri Girona-</title>
+              <meta charset="utf-8" />
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <meta name="author" content="autor" />
+              <meta name="description" content="Cementiri Girona amb Leaflet y Mapox">
+              <meta name="robots" content="index,follow">
+              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.0/leaflet.css" />
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.0/leaflet.js"></script>
+              <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+              <style>
+                body {
+                  margin: 0;
+                  padding: 0;
+                  overflow: hidden;
+                }
+                #map {
+                  height: 100%;
+                  width: 100%;
+                }
+              </style>
+              <script>
+                var map;
+                var capa1;
+                var esri;
+                var controlCapas;
+                var controlEscala;
+
+              $(document).ready(function() {
+                  map = L.map('map', {
+                    center: [41.97263673828709, 2.8368759155273438],
+                    zoom: 15,
+                    attributionControl: false
+                  });
+                  capa1 = L.tileLayer('https://api.mapbox.com/styles/v1/dcastellvell/cjd8t7jb67ij72spd07vvj2ea/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZGNhc3RlbGx2ZWxsIiwiYSI6ImNqY2pnbjBuZzBlbjUycXFuYzZlMnZndmYifQ.emLFp39omP4OBovdFDwqBw', {
+                    maxZoom: 19,
+                    minZoom: 1,
+                    attribution: 'Mapbox'
+                  });
+                  capa1.addTo(map);
+
+                  esri = L.tileLayer(
+                      'http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                        maxZoom: 19,
+                        minZoom: 1,
+                        attribution: 'Tiles © Esri',
+                        opacity:0.5
+                      }).addTo(map);
+
+                      var baseMaps = {
+                    "capa MapBox": capa1
+                    };
+                    var overlayMaps = {
+                    "Orto_esri": esri,
+                    };
+                    controlCapas = L.control.layers(baseMaps,overlayMaps);
+                    controlCapas.addTo(map);
+                    controlEscala = L.control.scale();
+                    controlEscala.addTo(map);
+                }); //Fin ready jquey
+              </script>
+            </head>
+            <body>
+              <div id="map"></div>
+            </body>
+            </html>
