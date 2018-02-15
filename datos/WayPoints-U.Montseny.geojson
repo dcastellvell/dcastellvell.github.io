@@ -1,0 +1,14 @@
+{
+"type": "FeatureCollection",
+"name": "WayPoints_U",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "ele": 342.736, "Type": "SORTIDA", "Name": "Cànovas", "Km": 0 }, "geometry": { "type": "Point", "coordinates": [ 2.353418, 41.691032, 342.736 ] } },
+{ "type": "Feature", "properties": { "ele": 1105.686, "Type": "AVITUALLAMENT", "Name": "Montseny", "Km": 16 }, "geometry": { "type": "Point", "coordinates": [ 2.418264, 41.804384, 1105.686 ] } },
+{ "type": "Feature", "properties": { "ele": 518.061, "Type": "AVITUALLAMENT", "Name": "St. Marçal", "Km": 27 }, "geometry": { "type": "Point", "coordinates": [ 2.394749, 41.759332, 518.061 ] } },
+{ "type": "Feature", "properties": { "ele": 340.259, "Type": "AVITUALLAMENT", "Name": "Viladrau", "Km": 42 }, "geometry": { "type": "Point", "coordinates": [ 2.35371, 41.690897, 340.259 ] } },
+{ "type": "Feature", "properties": { "ele": 1141.792, "Type": "AVITUALLAMENT", "Name": "Collformic", "Km": 53 }, "geometry": { "type": "Point", "coordinates": [ 2.347311, 41.801209, 1141.792 ] } },
+{ "type": "Feature", "properties": { "ele": 808.619, "Type": "AVITUALLAMENT", "Name": "Pla de la Calma", "Km": 63 }, "geometry": { "type": "Point", "coordinates": [ 2.384936, 41.850673, 808.619 ] } },
+{ "type": "Feature", "properties": { "ele": 1266.578, "Type": "ARRIBADA", "Name": "Cànovas", "Km": 74 }, "geometry": { "type": "Point", "coordinates": [ 2.333166, 41.764581, 1266.578 ] } }
+]
+}

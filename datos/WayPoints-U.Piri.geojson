@@ -1,0 +1,20 @@
+{
+"type": "FeatureCollection",
+"name": "WayPoints_U",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "ele": 794.6, "Type": "SORTIDA", "Name": "Bagà", "Km": 0 }, "geometry": { "type": "Point", "coordinates": [ 1.860866, 42.252693, 794.6 ] } },
+{ "type": "Feature", "properties": { "ele": 1629.7, "Type": "AVITUALLAMENT", "Name": "Refugi del Rebost", "Km": 8 }, "geometry": { "type": "Point", "coordinates": [ 1.885204, 42.287071, 1629.7 ] } },
+{ "type": "Feature", "properties": { "ele": 1429.4, "Type": "AVITUALLAMENT", "Name": "Refugi Niu de l'Àliga", "Km": 14 }, "geometry": { "type": "Point", "coordinates": [ 1.663129, 42.237289, 1429.4 ] } },
+{ "type": "Feature", "properties": { "ele": 1600.3, "Type": "AVITUALLAMENT", "Name": "Refugi Serrat de les Esposes", "Km": 28 }, "geometry": { "type": "Point", "coordinates": [ 1.790421, 42.30944, 1600.3 ] } },
+{ "type": "Feature", "properties": { "ele": 1565.5, "Type": "AVITUALLAMENT", "Name": "Bellver de Cerdanya", "Km": 40 }, "geometry": { "type": "Point", "coordinates": [ 1.804993, 42.294073, 1565.5 ] } },
+{ "type": "Feature", "properties": { "ele": 1998.3, "Type": "AVITUALLAMENT", "Name": "Refugi Cortals d'Ingla", "Km": 50 }, "geometry": { "type": "Point", "coordinates": [ 1.7142, 42.297119, 1998.3 ] } },
+{ "type": "Feature", "properties": { "ele": 1669.1, "Type": "AVITUALLAMENT", "Name": "Refugi de Prats d'Aguiló", "Km": 61 }, "geometry": { "type": "Point", "coordinates": [ 1.716219, 42.245172, 1669.1 ] } },
+{ "type": "Feature", "properties": { "ele": 1240.7, "Type": "AVITUALLAMENT", "Name": "Gósol", "Km": 74 }, "geometry": { "type": "Point", "coordinates": [ 1.724363, 42.257949, 1240.7 ] } },
+{ "type": "Feature", "properties": { "ele": 932.0, "Type": "AVITUALLAMENT", "Name": "Refugi Lluís Estasen", "Km": 82 }, "geometry": { "type": "Point", "coordinates": [ 1.814994, 42.268849, 932.0 ] } },
+{ "type": "Feature", "properties": { "ele": 1507.7, "Type": "AVITUALLAMENT", "Name": "Refugi del Gresolet", "Km": 86 }, "geometry": { "type": "Point", "coordinates": [ 1.828553, 42.325182, 1507.7 ] } },
+{ "type": "Feature", "properties": { "ele": 2516.1, "Type": "AVITUALLAMENT", "Name": "Refugi Vents del Cadí", "Km": 96 }, "geometry": { "type": "Point", "coordinates": [ 1.89335, 42.319467, 2516.1 ] } },
+{ "type": "Feature", "properties": { "ele": 1040.1, "Type": "AVITUALLAMENT", "Name": "Refugi St. Jordi", "Km": 100 }, "geometry": { "type": "Point", "coordinates": [ 1.777419, 42.367027, 1040.1 ] } },
+{ "type": "Feature", "properties": { "ele": 789.2, "Type": "ARRIBADA", "Name": "Bagà", "Km": 110 }, "geometry": { "type": "Point", "coordinates": [ 1.862162, 42.252959, 789.2 ] } }
+]
+}
