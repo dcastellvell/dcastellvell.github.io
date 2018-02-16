@@ -41,8 +41,13 @@
             z-index: 1000;
             width: auto;
             height: auto;
-
-            background-color: white;
+            background-color: #e6e4e4;
+            border: #7a7474 2px solid;
+        }
+        #views {
+            width: auto;
+            height: auto;
+            border-bottom: #7a7474 1px solid;
         }
 
         li {
@@ -58,29 +63,28 @@
         #UltraMontseny,
         #CaminsMatxos,
         #RondaCims {
-            font-size: 10px;
+            font-size: 12px;
+            font-style: unset;
+            margin: 5px;
             padding-left: 3px;
-            padding-top: 10px;
-            background-color: burlywood;
-            width: 40px;
-            height: 20px;
-            /* left: 20px; */
-            text-align: center;
-            border-radius: 18px;
+            padding-top: 5px;
+            background-color: #d9ed86;
+            height: 25px;
+            border: solid 1px #ffff;
             cursor: pointer;
         }
     </style>
     <script>
         var map;
         $(document).ready(function () {
-            
+
             map = new Cesium.Viewer('map', {
 
                 imageryProvider: new Cesium.createOpenStreetMapImageryProvider({
                     url: 'https://geoserveis.icgc.cat/icc_mapesmultibase/noutm/wmts/orto/GRID3857/',
                     fileExtension: 'jpeg',
-                maximumLevel: 19,
-                credit: 'Institut Cartogràfic i Geològic de Catalunya'
+                    maximumLevel: 19,
+                    credit: 'Institut Cartogràfic i Geològic de Catalunya'
                 }),
 
                 timeline: false,
@@ -94,7 +98,7 @@
                 animation: false,
                 geocoder: false,
                 shadows: false,
-				terrainShadows: Cesium.ShadowMode.ENABLED,
+                terrainShadows: Cesium.ShadowMode.ENABLED,
                 sceneMode: Cesium.SceneMode.SCENE3D,
                 terrainProvider: new Cesium.CesiumTerrainProvider({
                     url: 'https://tilemaps.icgc.cat/terrenys/demextes/',
@@ -148,131 +152,188 @@
 
                 }
 
-            }); //fin onclick
-
-            /*$('#bt_inicial').on('click',function(){
-              vistaInicial();  
-          });*/// solució donada pel profe
-
-
-            $('#bt_inicial').on('click', vistaInicial); //opció proposada per mi
-
-
-            function vistaInicial() {
-
-                map.camera.flyTo({
-                    destination: Cesium.Cartesian3.fromDegrees(1.816864013671875, 41.74262728637672, 50000) 
-                })
-            };
+            });
 
             var UPiri = Cesium.GeoJsonDataSource.load('datos/UltraPirineu.geojson', {
                 stroke: Cesium.Color.RED,
                 strokeWidth: 3,
-                clampToGround:true
+                clampToGround: true
             });
 
-            UPiri.then(function(dataSource) {
+            UPiri.then(function (dataSource) {
                 map.dataSources.add(dataSource);
             });
 
-            var PointsUpiri = Cesium.GeoJsonDataSource.load('datos/WayPoints-U.Piri.geojson', {
-                markerSize: 20,
-                //markerSymbol: '',
-                clampToGround:true,
+            PointsUpiri = Cesium.GeoJsonDataSource.load('datos/WayPoints-U.Piri.geojson', {
+                markerSize: 200,
+
             });
-              
-            PointsUpiri.then(function(dataSource) {
+            PointsUpiri.then(function (dataSource) {
+
                 map.dataSources.add(dataSource);
-                //dataSource.show= false; //Funciona
-                //show: {if (Cesium.Camera.ZoomAmount>20000) {true} else if(Cesium.Camera.ZoomAmount<20000){false}}
-                //if (Cesium.Camera.ZoomFactort<5) {dataSource.show=false}
-                /*if (Cesium.Camera.ZoomAmount>20000) {dataSource.show= true;} 
-                else if(Cesium.Camera.ZoomAmount<20000){dataSource.show= false;}*/ //No funciona
-                
+
                 var entities = dataSource.entities.values;
-                var MarKer;
-	            for (var i = 0; i < entities.length; i++) {
-	            var entity = entities[i];
-	            var Code = parseFloat(entity.properties.Code)
-	            if (Code=1){MarKer='s';
-                } else if (Code =3){MarKer='a';
-                } else if (Code =2){MarKer='f';
-                }
+                var stage;
+                for (var i = 0; i < entities.length; i++) {
+                    var entity = entities[i];
+                    var Code = parseFloat(entity.properties.Code)
 
-                Cesium.GeoJsonDataSource.markerSymbol=MarKer;}
+                    if (Code == 1) {
+                        stage = Cesium.Color.DEEPSKYBLUE;
+                    } else if (Code == 2) {
+                        stage = Cesium.Color.LIME;
+                    } else if (Code == 3) {
+                        stage = Cesium.Color.MEDIUMBLUE;
+                    } else if (Code == 4) {
+                        stage = Cesium.Color.ORANGE;
+                    } else if (Code == 5) {
+                        stage = Cesium.Color.RED;
+                    }
+                    entity.billboard.color = stage;
+                    entity.billboard.scaleByDistance = new Cesium.NearFarScalar(1e2, 0.5, 3.5e4, 0.0);
+                    //entity.billboard.pixelSize = new Cesium.ConstantProperty(20);
+                    //entityscaleByDistance = new Cesium.NearFarScalar(1.5e2, 1.5, 2.0e4, 0.0);
+
+                }
             });
 
             var UMontseny = Cesium.GeoJsonDataSource.load('datos/UltraMontseny.geojson', {
                 stroke: Cesium.Color.RED,
                 strokeWidth: 8,
-                clampToGround:true
+                clampToGround: true
             });
 
-            UMontseny.then(function(dataSource) {
+            UMontseny.then(function (dataSource) {
                 map.dataSources.add(dataSource);
             });
 
             var PointsMontseny = Cesium.GeoJsonDataSource.load('datos/WayPoints-U.Montseny.geojson', {
-                markerSize: 20,
+                markerSize: 200,
                 //markerSymbol:,
-                clampToGround:true,
+                clampToGround: true,
             });
 
-            PointsMontseny.then(function(dataSource) {
+            PointsMontseny.then(function (dataSource) {
                 map.dataSources.add(dataSource);
+                var entities = dataSource.entities.values;
+                var stage;
+                for (var i = 0; i < entities.length; i++) {
+                    var entity = entities[i];
+                    var Code = parseFloat(entity.properties.Code)
+                    if (Code == 1) {
+                        stage = Cesium.Color.DEEPSKYBLUE;
+                    } else if (Code == 2) {
+                        stage = Cesium.Color.LIME;
+                    } else if (Code == 3) {
+                        stage = Cesium.Color.MEDIUMBLUE;
+                    } else if (Code == 4) {
+                        stage = Cesium.Color.ORANGE;
+                    } else if (Code == 5) {
+                        stage = Cesium.Color.RED;
+                    }
+                    entity.billboard.color = stage;
+                    entity.billboard.scaleByDistance = new Cesium.NearFarScalar(1e2, 0.5, 3.5e4, 0.0);
+                }
             });
 
             var CamMatxos = Cesium.GeoJsonDataSource.load('datos/CaminsMatxos.geojson', {
                 stroke: Cesium.Color.RED,
                 strokeWidth: 8,
-                clampToGround:true
+                clampToGround: true
             });
 
-            CamMatxos.then(function(dataSource) {
+            CamMatxos.then(function (dataSource) {
                 map.dataSources.add(dataSource);
             });
 
             var PointsMatxos = Cesium.GeoJsonDataSource.load('datos/WayPoints-Matxos.geojson', {
-                markerSize: 20,
+                markerSize: 200,
                 //markerSymbol:,
-                clampToGround:true,
+                clampToGround: true,
             });
 
-            PointsMatxos.then(function(dataSource) {
+            PointsMatxos.then(function (dataSource) {
                 map.dataSources.add(dataSource);
+                var entities = dataSource.entities.values;
+                var stage;
+                for (var i = 0; i < entities.length; i++) {
+                    var entity = entities[i];
+                    var Code = parseFloat(entity.properties.Code)
+                    if (Code == 1) {
+                        stage = Cesium.Color.DEEPSKYBLUE;
+                    } else if (Code == 2) {
+                        stage = Cesium.Color.LIME;
+                    } else if (Code == 3) {
+                        stage = Cesium.Color.MEDIUMBLUE;
+                    } else if (Code == 4) {
+                        stage = Cesium.Color.ORANGE;
+                    } else if (Code == 5) {
+                        stage = Cesium.Color.RED;
+                    }
+                    entity.billboard.color = stage;
+                    entity.billboard.scaleByDistance = new Cesium.NearFarScalar(1e2, 0.5, 3.5e4, 0.0);
+                }
             });
 
             var Rcims = Cesium.GeoJsonDataSource.load('datos/RondaCims.geojson', {
                 stroke: Cesium.Color.RED,
                 strokeWidth: 8,
-                clampToGround:true
+                clampToGround: true
             });
 
-            Rcims.then(function(dataSource) {
+            Rcims.then(function (dataSource) {
                 map.dataSources.add(dataSource);
             });
 
             var PointsRcims = Cesium.GeoJsonDataSource.load('datos/WayPoints-R.Cims.geojson', {
-                markerSize: 20,
+                markerSize: 200,
                 //markerSymbol:,
-                clampToGround:true,
+                clampToGround: true,
             });
 
-            PointsRcims.then(function(dataSource) {
+            PointsRcims.then(function (dataSource) {
                 map.dataSources.add(dataSource);
+                var entities = dataSource.entities.values;
+                var stage;
+                for (var i = 0; i < entities.length; i++) {
+                    var entity = entities[i];
+                    var Code = parseFloat(entity.properties.Code)
+                    if (Code == 1) {
+                        stage = Cesium.Color.DEEPSKYBLUE;
+                    } else if (Code == 2) {
+                        stage = Cesium.Color.LIME;
+                    } else if (Code == 3) {
+                        stage = Cesium.Color.MEDIUMBLUE;
+                    } else if (Code == 4) {
+                        stage = Cesium.Color.ORANGE;
+                    } else if (Code == 5) {
+                        stage = Cesium.Color.RED;
+                    }
+                    entity.billboard.color = stage;
+                    entity.billboard.scaleByDistance = new Cesium.NearFarScalar(1e2, 0.5, 3.5e4, 0.0);
+                }
             });
+
+            $('#bt_inicial').on('click', vistaInicial);
+
+            function vistaInicial() {
+
+                map.camera.flyTo({
+                    destination: Cesium.Cartesian3.fromDegrees(1.615582513318941, 41.95805845809739, 100000) 
+                })
+            };
 
             $('#UltraPirineu').on('click', UltraPirineu);
 
-			function UltraPirineu() {
+            function UltraPirineu() {
 
                 map.camera.flyTo({
-                    destination: Cesium.Cartesian3.fromDegrees(1.8603265285491943, 42.25276888353427, 20000)
+                    destination: Cesium.Cartesian3.fromDegrees(1.8456525563209425, 42.309659964135705, 20000)
                 })
             };
 
             $('#UltraMontseny').on('click', UltraMontseny);
-            
+
             function UltraMontseny() {
 
                 map.camera.flyTo({
@@ -281,11 +342,11 @@
             };
 
             $('#CaminsMatxos').on('click', CaminsMatxos);
-            
+
             function CaminsMatxos() {
 
                 map.camera.flyTo({
-                    destination: Cesium.Cartesian3.fromDegrees(2.2624969482421875, 42.054518709980954, 20000)
+                        destination: Cesium.Cartesian3.fromDegrees(2.2624969482421875, 42.054518709980954, 20000)
                 })
             };
 
@@ -297,8 +358,8 @@
                     destination: Cesium.Cartesian3.fromDegrees(1.5013792616941828, 42.58878447868503, 20000)
                 })
             };
-            
-        }); //Fin ready
+
+        });
 
     </script>
 
@@ -307,11 +368,13 @@
 <body>
 
     <div id="capas">
-        <div id="bt_inicial">Inicio</div>
+    <div id="views">
+        <div id="bt_inicial">Vista Inicial</div>
         <div id="UltraPirineu">Ultra Pirineu</div>
         <div id="UltraMontseny">Ultra Montseny</div>
         <div id="CaminsMatxos">Pels Camins dels Matxos</div>
         <div id="RondaCims">Ronda dels Cims</div>
+    </div>
         <ul>
             <li>Capas</li>
             <li>

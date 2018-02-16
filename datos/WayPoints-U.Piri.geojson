@@ -3,18 +3,18 @@
 "name": "WayPoints-U",
 "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
-{ "type": "Feature", "properties": { "id": 1, "kind": "SORTIDA", "Code": 1, "Name": "Bagà", "Km": 0, "ele": 794.6 }, "geometry": { "type": "Point", "coordinates": [ 1.860866, 42.252693, 794.6 ] } },
-{ "type": "Feature", "properties": { "id": 2, "kind": "AVITUALLAMENT", "Code": 3, "Name": "Refugi del Rebost", "Km": 8, "ele": 1629.7 }, "geometry": { "type": "Point", "coordinates": [ 1.885204, 42.287071, 1629.7 ] } },
-{ "type": "Feature", "properties": { "id": 3, "kind": "AVITUALLAMENT", "Code": 3, "Name": "Refugi Niu de l'Àliga", "Km": 14, "ele": 1429.4 }, "geometry": { "type": "Point", "coordinates": [ 1.663129, 42.237289, 1429.4 ] } },
-{ "type": "Feature", "properties": { "id": 4, "kind": "AVITUALLAMENT", "Code": 3, "Name": "Refugi Serrat de les Esposes", "Km": 28, "ele": 1600.3 }, "geometry": { "type": "Point", "coordinates": [ 1.790421, 42.30944, 1600.3 ] } },
-{ "type": "Feature", "properties": { "id": 5, "kind": "AVITUALLAMENT", "Code": 3, "Name": "Bellver de Cerdanya", "Km": 40, "ele": 1565.5 }, "geometry": { "type": "Point", "coordinates": [ 1.804993, 42.294073, 1565.5 ] } },
-{ "type": "Feature", "properties": { "id": 6, "kind": "AVITUALLAMENT", "Code": 3, "Name": "Refugi Cortals d'Ingla", "Km": 50, "ele": 1998.3 }, "geometry": { "type": "Point", "coordinates": [ 1.7142, 42.297119, 1998.3 ] } },
-{ "type": "Feature", "properties": { "id": 7, "kind": "AVITUALLAMENT", "Code": 3, "Name": "Refugi de Prats d'Aguiló", "Km": 61, "ele": 1669.1 }, "geometry": { "type": "Point", "coordinates": [ 1.716219, 42.245172, 1669.1 ] } },
-{ "type": "Feature", "properties": { "id": 8, "kind": "AVITUALLAMENT", "Code": 3, "Name": "Gósol", "Km": 74, "ele": 1240.7 }, "geometry": { "type": "Point", "coordinates": [ 1.724363, 42.257949, 1240.7 ] } },
-{ "type": "Feature", "properties": { "id": 9, "kind": "AVITUALLAMENT", "Code": 3, "Name": "Refugi Lluís Estasen", "Km": 82, "ele": 932.0 }, "geometry": { "type": "Point", "coordinates": [ 1.814994, 42.268849, 932.0 ] } },
-{ "type": "Feature", "properties": { "id": 10, "kind": "AVITUALLAMENT", "Code": 3, "Name": "Refugi del Gresolet", "Km": 86, "ele": 1507.7 }, "geometry": { "type": "Point", "coordinates": [ 1.828553, 42.325182, 1507.7 ] } },
-{ "type": "Feature", "properties": { "id": 11, "kind": "AVITUALLAMENT", "Code": 3, "Name": "Refugi Vents del Cadí", "Km": 96, "ele": 2516.1 }, "geometry": { "type": "Point", "coordinates": [ 1.89335, 42.319467, 2516.1 ] } },
-{ "type": "Feature", "properties": { "id": 12, "kind": "AVITUALLAMENT", "Code": 3, "Name": "Refugi St. Jordi", "Km": 100, "ele": 1040.1 }, "geometry": { "type": "Point", "coordinates": [ 1.777419, 42.367027, 1040.1 ] } },
-{ "type": "Feature", "properties": { "id": 13, "kind": "ARRIBADA", "Code": 2, "Name": "Bagà", "Km": 110, "ele": 789.2 }, "geometry": { "type": "Point", "coordinates": [ 1.862162, 42.252959, 789.2 ] } }
+{ "type": "Feature", "properties": { "id": 1, "kind": "SORTIDA", "Code": 1, "Name": "Bagà", "Km": 0, "ele": 794.6, "Cursa": "Ultra Pirineu" }, "geometry": { "type": "Point", "coordinates": [ 1.860866, 42.252693, 794.6 ] } },
+{ "type": "Feature", "properties": { "id": 2, "kind": "AVITUALLAMENT", "Code": 3, "Name": "Refugi del Rebost", "Km": 8, "ele": 1629.7, "Cursa": "Ultra Pirineu" }, "geometry": { "type": "Point", "coordinates": [ 1.885204, 42.287071, 1629.7 ] } },
+{ "type": "Feature", "properties": { "id": 5, "kind": "AVITUALLAMENT", "Code": 3, "Name": "Bellver de Cerdanya", "Km": 40, "ele": 1040.1, "Cursa": "Ultra Pirineu" }, "geometry": { "type": "Point", "coordinates": [ 1.777419, 42.367027, 1040.1 ] } },
+{ "type": "Feature", "properties": { "id": 6, "kind": "AVITUALLAMENT", "Code": 3, "Name": "Refugi Cortals d'Ingla", "Km": 50, "ele": 1600.3, "Cursa": "Ultra Pirineu" }, "geometry": { "type": "Point", "coordinates": [ 1.790421, 42.30944, 1600.3 ] } },
+{ "type": "Feature", "properties": { "id": 7, "kind": "AVITUALLAMENT", "Code": 3, "Name": "Refugi de Prats d'Aguiló", "Km": 61, "ele": 1998.3, "Cursa": "Ultra Pirineu" }, "geometry": { "type": "Point", "coordinates": [ 1.7142, 42.297119, 1998.3 ] } },
+{ "type": "Feature", "properties": { "id": 8, "kind": "AVITUALLAMENT", "Code": 3, "Name": "Gòsol", "Km": 74, "ele": 1429.4, "Cursa": "Ultra Pirineu" }, "geometry": { "type": "Point", "coordinates": [ 1.663129, 42.237289, 1429.4 ] } },
+{ "type": "Feature", "properties": { "id": 9, "kind": "AVITUALLAMENT", "Code": 3, "Name": "Refugi Lluís Estasen", "Km": 82, "ele": 1669.1, "Cursa": "Ultra Pirineu" }, "geometry": { "type": "Point", "coordinates": [ 1.716219, 42.245172, 1669.1 ] } },
+{ "type": "Feature", "properties": { "id": 10, "kind": "AVITUALLAMENT", "Code": 3, "Name": "Refugi de Gresolet", "Km": 86, "ele": 1240.7, "Cursa": "Ultra Pirineu" }, "geometry": { "type": "Point", "coordinates": [ 1.724363, 42.257949, 1240.7 ] } },
+{ "type": "Feature", "properties": { "id": 11, "kind": "AVITUALLAMENT", "Code": 3, "Name": "Refugi Vents del Cadí", "Km": 96, "ele": 932.0, "Cursa": "Ultra Pirineu" }, "geometry": { "type": "Point", "coordinates": [ 1.814994, 42.268849, 932.0 ] } },
+{ "type": "Feature", "properties": { "id": 12, "kind": "AVITUALLAMENT", "Code": 3, "Name": "Refugi Sant Jordi", "Km": 100, "ele": 1565.5, "Cursa": "Ultra Pirineu" }, "geometry": { "type": "Point", "coordinates": [ 1.804993, 42.294073, 1565.5 ] } },
+{ "type": "Feature", "properties": { "id": 4, "kind": "AVITUALLAMENT", "Code": 3, "Name": "Refugi de Serrat de les Esposes", "Km": 28, "ele": 1507.7, "Cursa": "Ultra Pirineu" }, "geometry": { "type": "Point", "coordinates": [ 1.828553, 42.325182, 1507.7 ] } },
+{ "type": "Feature", "properties": { "id": 3, "kind": "AVITUALLAMENT", "Code": 3, "Name": "Refugi Niu de l'Aliga", "Km": 14, "ele": 2516.1, "Cursa": "Ultra Pirineu" }, "geometry": { "type": "Point", "coordinates": [ 1.89335, 42.319467, 2516.1 ] } },
+{ "type": "Feature", "properties": { "id": 13, "kind": "ARRIBADA", "Code": 2, "Name": "Bagà", "Km": 110, "ele": 789.2, "Cursa": "Ultra Pirineu" }, "geometry": { "type": "Point", "coordinates": [ 1.862162, 42.252959, 789.2 ] } }
 ]
 }
