@@ -1,7 +1,7 @@
 <html lang="es">
 
 <head>
-    <title>Practica final 1</title>
+    <title>Practica final</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="autor" />
@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="Cesium/Widgets/widgets.css" />
     <script src="Cesium/Cesium.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     <style>
         #map {
             position: absolute;
@@ -62,18 +63,20 @@
         #UltraPirineu,
         #UltraMontseny,
         #CaminsMatxos,
-        #RondaCims {
+        #RondaCims,
+        #CostaDaurada {
             font-size: 12px;
             font-style: unset;
             margin: 5px;
             padding-left: 3px;
-            padding-top: 5px;
+            padding-top: 10px;
             background-color: #d9ed86;
             height: 25px;
             border: solid 1px #ffff;
             cursor: pointer;
         }
     </style>
+
     <script>
         var map;
         $(document).ready(function () {
@@ -96,7 +99,7 @@
                 infoBox: true,
                 sceneModePicker: false,
                 animation: false,
-                geocoder: false,
+                geocoder: true,
                 shadows: false,
                 terrainShadows: Cesium.ShadowMode.ENABLED,
                 sceneMode: Cesium.SceneMode.SCENE3D,
@@ -110,7 +113,6 @@
             });
 
             vistaInicial();
-
 
 
             var overlay = map.imageryLayers;
@@ -136,6 +138,10 @@
             }));
             topo2ICGC.show = false;
 
+            var mapboxlevelstyle = overlay.addImageryProvider(new Cesium.UrlTemplateImageryProvider({
+                url: 'https://api.mapbox.com/styles/v1/dcastellvell/cjdr6s5qb24m52sp9k689a6g3/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiZGNhc3RlbGx2ZWxsIiwiYSI6ImNqY2pnbjBuZzBlbjUycXFuYzZlMnZndmYifQ.emLFp39omP4OBovdFDwqBw',
+            }));
+            mapboxlevelstyle.show = false;
 
 
             $('.chk_capes').on('click', function () {
@@ -146,17 +152,18 @@
                     ortoWorld.show = estado;
                 } else if (layer == 'topoICGC') {
                     topoICGC.show = estado;
-
                 } else if (layer == 'topo2ICGC') {
                     topo2ICGC.show = estado;
-
+                } else if (layer == 'mapboxlevelstyle') {
+                    mapboxlevelstyle.show = estado;
                 }
-
             });
 
+            //Fitxer de dades
+            //Ultra Pirineu
             var UPiri = Cesium.GeoJsonDataSource.load('datos/UltraPirineu.geojson', {
-                stroke: Cesium.Color.RED,
-                strokeWidth: 3,
+                stroke: Cesium.Color.CORAL,
+                strokeWidth: 5,
                 clampToGround: true
             });
 
@@ -164,10 +171,10 @@
                 map.dataSources.add(dataSource);
             });
 
-            PointsUpiri = Cesium.GeoJsonDataSource.load('datos/WayPoints-U.Piri.geojson', {
-                markerSize: 200,
-
+            var PointsUpiri = Cesium.GeoJsonDataSource.load('datos/WayPoints-U.Piri.geojson', {
+                markerSize: 100,
             });
+
             PointsUpiri.then(function (dataSource) {
 
                 map.dataSources.add(dataSource);
@@ -185,21 +192,19 @@
                     } else if (Code == 3) {
                         stage = Cesium.Color.MEDIUMBLUE;
                     } else if (Code == 4) {
-                        stage = Cesium.Color.ORANGE;
+                        stage = Cesium.Color.DARKORANGE;
                     } else if (Code == 5) {
                         stage = Cesium.Color.RED;
                     }
                     entity.billboard.color = stage;
-                    entity.billboard.scaleByDistance = new Cesium.NearFarScalar(1e2, 0.5, 3.5e4, 0.0);
-                    //entity.billboard.pixelSize = new Cesium.ConstantProperty(20);
-                    //entityscaleByDistance = new Cesium.NearFarScalar(1.5e2, 1.5, 2.0e4, 0.0);
-
+                    entity.billboard.scaleByDistance = new Cesium.NearFarScalar(3e3, 1, 12e3, 0.0);
                 }
             });
 
+            //Ultra Montseny
             var UMontseny = Cesium.GeoJsonDataSource.load('datos/UltraMontseny.geojson', {
-                stroke: Cesium.Color.RED,
-                strokeWidth: 8,
+                stroke: Cesium.Color.CORAL,
+                strokeWidth: 10,
                 clampToGround: true
             });
 
@@ -209,7 +214,6 @@
 
             var PointsMontseny = Cesium.GeoJsonDataSource.load('datos/WayPoints-U.Montseny.geojson', {
                 markerSize: 200,
-                //markerSymbol:,
                 clampToGround: true,
             });
 
@@ -227,18 +231,19 @@
                     } else if (Code == 3) {
                         stage = Cesium.Color.MEDIUMBLUE;
                     } else if (Code == 4) {
-                        stage = Cesium.Color.ORANGE;
+                        stage = Cesium.Color.DARKORANGE;
                     } else if (Code == 5) {
                         stage = Cesium.Color.RED;
                     }
                     entity.billboard.color = stage;
-                    entity.billboard.scaleByDistance = new Cesium.NearFarScalar(1e2, 0.5, 3.5e4, 0.0);
+                    entity.billboard.scaleByDistance = new Cesium.NearFarScalar(1e3, 1, 12e3, 0.0);
                 }
             });
 
+            //Pels Camins dels Matxos
             var CamMatxos = Cesium.GeoJsonDataSource.load('datos/CaminsMatxos.geojson', {
-                stroke: Cesium.Color.RED,
-                strokeWidth: 8,
+                stroke: Cesium.Color.CORAL,
+                strokeWidth: 10,
                 clampToGround: true
             });
 
@@ -248,7 +253,6 @@
 
             var PointsMatxos = Cesium.GeoJsonDataSource.load('datos/WayPoints-Matxos.geojson', {
                 markerSize: 200,
-                //markerSymbol:,
                 clampToGround: true,
             });
 
@@ -266,18 +270,19 @@
                     } else if (Code == 3) {
                         stage = Cesium.Color.MEDIUMBLUE;
                     } else if (Code == 4) {
-                        stage = Cesium.Color.ORANGE;
+                        stage = Cesium.Color.DARKORANGE;
                     } else if (Code == 5) {
                         stage = Cesium.Color.RED;
                     }
                     entity.billboard.color = stage;
-                    entity.billboard.scaleByDistance = new Cesium.NearFarScalar(1e2, 0.5, 3.5e4, 0.0);
+                    entity.billboard.scaleByDistance = new Cesium.NearFarScalar(1e3, 1, 12e3, 0.0);
                 }
             });
 
+            //Ronda dels Cims
             var Rcims = Cesium.GeoJsonDataSource.load('datos/RondaCims.geojson', {
-                stroke: Cesium.Color.RED,
-                strokeWidth: 8,
+                stroke: Cesium.Color.CORAL,
+                strokeWidth: 10,
                 clampToGround: true
             });
 
@@ -287,7 +292,6 @@
 
             var PointsRcims = Cesium.GeoJsonDataSource.load('datos/WayPoints-R.Cims.geojson', {
                 markerSize: 200,
-                //markerSymbol:,
                 clampToGround: true,
             });
 
@@ -305,21 +309,61 @@
                     } else if (Code == 3) {
                         stage = Cesium.Color.MEDIUMBLUE;
                     } else if (Code == 4) {
-                        stage = Cesium.Color.ORANGE;
+                        stage = Cesium.Color.DARKORANGE;
                     } else if (Code == 5) {
                         stage = Cesium.Color.RED;
                     }
                     entity.billboard.color = stage;
-                    entity.billboard.scaleByDistance = new Cesium.NearFarScalar(1e2, 0.5, 3.5e4, 0.0);
+                    entity.billboard.scaleByDistance = new Cesium.NearFarScalar(1e3, 1, 12e3, 0.0);
                 }
             });
 
+            // UT Costa Daurada
+            var CostaDaurada = Cesium.GeoJsonDataSource.load('datos/CostaDaurada.geojson', {
+                stroke: Cesium.Color.CORAL,
+                strokeWidth: 10,
+                clampToGround: true
+            });
+
+            CostaDaurada.then(function (dataSource) {
+                map.dataSources.add(dataSource);
+            });
+
+            var PointsCDaurada = Cesium.GeoJsonDataSource.load('datos/WayPoints-CostaDaurada.geojson', {
+                markerSize: 200,
+                clampToGround: true,
+            });
+
+            PointsCDaurada.then(function (dataSource) {
+                map.dataSources.add(dataSource);
+                var entities = dataSource.entities.values;
+                var stage;
+                for (var i = 0; i < entities.length; i++) {
+                    var entity = entities[i];
+                    var Code = parseFloat(entity.properties.Code)
+                    if (Code == 1) {
+                        stage = Cesium.Color.DEEPSKYBLUE;
+                    } else if (Code == 2) {
+                        stage = Cesium.Color.LIME;
+                    } else if (Code == 3) {
+                        stage = Cesium.Color.MEDIUMBLUE;
+                    } else if (Code == 4) {
+                        stage = Cesium.Color.DARKORANGE;
+                    } else if (Code == 5) {
+                        stage = Cesium.Color.RED;
+                    }
+                    entity.billboard.color = stage;
+                    entity.billboard.scaleByDistance = new Cesium.NearFarScalar(1e3, 1, 12e3, 0.0);
+                }
+            });
+
+            //Vistes
             $('#bt_inicial').on('click', vistaInicial);
 
             function vistaInicial() {
 
                 map.camera.flyTo({
-                    destination: Cesium.Cartesian3.fromDegrees(1.615582513318941, 41.95805845809739, 100000) 
+                    destination: Cesium.Cartesian3.fromDegrees(1.615582513318941, 41.95805845809739, 100000)
                 })
             };
 
@@ -328,7 +372,7 @@
             function UltraPirineu() {
 
                 map.camera.flyTo({
-                    destination: Cesium.Cartesian3.fromDegrees(1.8456525563209425, 42.309659964135705, 20000)
+                    destination: Cesium.Cartesian3.fromDegrees(1.8707151173560987, 42.27084681526255, 11000)
                 })
             };
 
@@ -337,7 +381,7 @@
             function UltraMontseny() {
 
                 map.camera.flyTo({
-                    destination: Cesium.Cartesian3.fromDegrees(2.3526620864868164, 41.69435352925401, 20000)
+                    destination: Cesium.Cartesian3.fromDegrees(2.3526620864868164, 41.69435352925401, 11000)
                 })
             };
 
@@ -346,7 +390,7 @@
             function CaminsMatxos() {
 
                 map.camera.flyTo({
-                        destination: Cesium.Cartesian3.fromDegrees(2.2624969482421875, 42.054518709980954, 20000)
+                    destination: Cesium.Cartesian3.fromDegrees(2.2624969482421875, 42.054518709980954, 11000)
                 })
             };
 
@@ -355,10 +399,18 @@
             function RondaCims() {
 
                 map.camera.flyTo({
-                    destination: Cesium.Cartesian3.fromDegrees(1.5013792616941828, 42.58878447868503, 20000)
+                    destination: Cesium.Cartesian3.fromDegrees(1.532410193837677, 42.55562000468062, 11000)
                 })
             };
 
+            $('#CostaDaurada').on('click', CosDau);
+
+            function CosDau() {
+
+                map.camera.flyTo({
+                        destination: Cesium.Cartesian3.fromDegrees(0.98786487747725, 41.30913861352768, 11000)
+                })
+            };
         });
 
     </script>
@@ -374,9 +426,10 @@
         <div id="UltraMontseny">Ultra Montseny</div>
         <div id="CaminsMatxos">Pels Camins dels Matxos</div>
         <div id="RondaCims">Ronda dels Cims</div>
+        <div id="CostaDaurada">UTM.Costa Daurada</div>
     </div>
         <ul>
-            <li>Capas</li>
+            <li>Capes</li>
             <li>
                 <input type="checkbox" value="topoICGC" class="chk_capes"> topoICGC
             </li>
@@ -385,6 +438,9 @@
             </li>
             <li>
                 <input type="checkbox" value="ortoWorld" class="chk_capes"> orto mundial
+            </li>
+            <li>
+                <input type="checkbox" value="mapboxlevelstyle" class="chk_capes"> Corves Nivell
             </li>
         </ul>
     </div>

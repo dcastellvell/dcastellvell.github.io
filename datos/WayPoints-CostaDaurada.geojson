@@ -1,0 +1,24 @@
+{
+"type": "FeatureCollection",
+"name": "WayPoints-CostDaurada",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "ele": 949.3, "kind": "SALIDA", "Code": 1, "id": 1, "Km": 0, "Name": "PRADES", "Cursa": "UT Costa Daurada" }, "geometry": { "type": "Point", "coordinates": [ 0.988056493873171, 41.309725958231219, 949.3 ] } },
+{ "type": "Feature", "properties": { "ele": 1090.5, "kind": "CONTROL", "Code": 4, "id": 2, "Km": 4, "Name": "Coll del Bosc", "Cursa": "UT Costa Daurada" }, "geometry": { "type": "Point", "coordinates": [ 1.00248, 41.327938, 1090.5 ] } },
+{ "type": "Feature", "properties": { "ele": 923.6, "kind": "CONTROL", "Code": 4, "id": 3, "Km": 7, "Name": "Barranc de les Pites", "Cursa": "UT Costa Daurada" }, "geometry": { "type": "Point", "coordinates": [ 0.981029, 41.328037, 923.6 ] } },
+{ "type": "Feature", "properties": { "ele": 950.3, "kind": "AV1 ULTRA", "Code": 3, "id": 4, "Km": 13, "Name": "PRADES", "Cursa": "UT Costa Daurada" }, "geometry": { "type": "Point", "coordinates": [ 0.987987, 41.309432, 950.3 ] } },
+{ "type": "Feature", "properties": { "ele": 806.2, "kind": "AV2 CONTROL", "Code": 3, "id": 5, "Km": 26, "Name": "ALBARCA", "Cursa": "UT Costa Daurada" }, "geometry": { "type": "Point", "coordinates": [ 0.912519, 41.30049, 806.2 ] } },
+{ "type": "Feature", "properties": { "ele": 1041.3, "kind": "CONTROL", "Code": 4, "id": 6, "Km": 32, "Name": "Pla del Meloner", "Cursa": "UT Costa Daurada" }, "geometry": { "type": "Point", "coordinates": [ 0.878876, 41.28099, 1041.3 ] } },
+{ "type": "Feature", "properties": { "ele": 531.6, "kind": "AV3 CONTROL", "Code": 3, "id": 7, "Km": 36, "Name": "CORNUDELLA", "Cursa": "UT Costa Daurada" }, "geometry": { "type": "Point", "coordinates": [ 0.905803, 41.265682, 531.6 ] } },
+{ "type": "Feature", "properties": { "ele": 736.1, "kind": "AV4 CONTROL", "Code": 3, "id": 8, "Km": 40, "Name": "CORNUDELLA", "Cursa": "UT Costa Daurada" }, "geometry": { "type": "Point", "coordinates": [ 0.932234, 41.257662, 736.1 ] } },
+{ "type": "Feature", "properties": { "ele": 961.7, "kind": "AV5 CONTROL", "Code": 3, "id": 9, "Km": 50, "Name": "El Collet Alt", "Cursa": "UT Costa Daurada" }, "geometry": { "type": "Point", "coordinates": [ 0.975437, 41.245366, 961.7 ] } },
+{ "type": "Feature", "properties": { "ele": 354.6, "kind": "AV6 BOLSA-VIDA", "Code": 3, "id": 10, "Km": 59, "Name": "VILAPLANA", "Cursa": "UT Costa Daurada" }, "geometry": { "type": "Point", "coordinates": [ 1.033027, 41.227013, 354.6 ] } },
+{ "type": "Feature", "properties": { "ele": 967.6, "kind": "AV7 CONTROL", "Code": 3, "id": 11, "Km": 63, "Name": "Refugi de la Mussara", "Cursa": "UT Costa Daurada" }, "geometry": { "type": "Point", "coordinates": [ 1.03112, 41.253806, 967.6 ] } },
+{ "type": "Feature", "properties": { "ele": 824.5, "kind": "AV8 CONTROL", "Code": 3, "id": 12, "Km": 71, "Name": "L'ALBIOL", "Cursa": "UT Costa Daurada" }, "geometry": { "type": "Point", "coordinates": [ 1.089424, 41.252145, 824.5 ] } },
+{ "type": "Feature", "properties": { "ele": 325.8, "kind": "AV9 CONTROL", "Code": 3, "id": 13, "Km": 77, "Name": "Molins dels Capellans", "Cursa": "UT Costa Daurada" }, "geometry": { "type": "Point", "coordinates": [ 1.133922, 41.265359, 325.8 ] } },
+{ "type": "Feature", "properties": { "ele": 869.5, "kind": "AV10 CONTROL", "Code": 3, "id": 14, "Km": 83, "Name": "MONT-RAL", "Cursa": "UT Costa Daurada" }, "geometry": { "type": "Point", "coordinates": [ 1.098754, 41.287051, 869.5 ] } },
+{ "type": "Feature", "properties": { "ele": 751.0, "kind": "AV11 CONTROL", "Code": 3, "id": 15, "Km": 93, "Name": "CAPAFONTS", "Cursa": "UT Costa Daurada" }, "geometry": { "type": "Point", "coordinates": [ 1.02685, 41.294909, 751.0 ] } },
+{ "type": "Feature", "properties": { "ele": 1145.1, "kind": "AV12 CONTROL", "Code": 3, "id": 16, "Km": 102, "Name": "Tossal de Baltassana", "Cursa": "UT Costa Daurada" }, "geometry": { "type": "Point", "coordinates": [ 1.007609, 41.326715, 1145.1 ] } },
+{ "type": "Feature", "properties": { "ele": 949.3, "kind": "META", "Code": 2, "id": 17, "Km": 105, "Name": "PARDES", "Cursa": "UT Costa Daurada" }, "geometry": { "type": "Point", "coordinates": [ 0.987879, 41.309723, 949.3 ] } }
+]
+}
