@@ -160,7 +160,7 @@
                 }
             });
 
-            //Fitxer de dades
+            //Fitxers de dades
             //Ultra Pirineu
             var UPiri = Cesium.GeoJsonDataSource.load('datos/UltraPirineu.geojson', {
                 stroke: Cesium.Color.CORAL,
@@ -198,7 +198,7 @@
                         stage = Cesium.Color.RED;
                     }
                     entity.billboard.color = stage;
-                    entity.billboard.scaleByDistance = new Cesium.NearFarScalar(3e3, 1, 12e3, 0.0);
+                    entity.billboard.scaleByDistance = new Cesium.NearFarScalar(1e3, 1, 12e3, 0.0);
                 }
             });
 
